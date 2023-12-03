@@ -10,11 +10,11 @@ import RealityKit
 import RealityKitContent
 
 struct DioramaView: View {
-
+    var viewModel:ViewModel
     var body: some View {
         RealityView { content in
             do {
-                let entity = try await Entity(named: "Scene", in: realityKitContentBundle)
+                let entity = try await Entity(named: "DioramaAssembled", in: realityKitContentBundle)
                 content.add(entity)
                 entity.position = SIMD3<Float>(0, 0, -5)
 
@@ -30,5 +30,5 @@ struct DioramaView: View {
 }
 
 #Preview() {
-    DioramaView().previewLayout(.sizeThatFits)
+    DioramaView(viewModel: ViewModel()).previewLayout(.sizeThatFits)
 }

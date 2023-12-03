@@ -7,7 +7,7 @@
 
 def Xform "Root"
 {
-    reorder nameChildren = ["FlatTerrain", "DynamicTerrainMaterial", "GridMaterial", "Diorama_Base", "Yosemite", "Metallic_Gold_PU_Leather", "Yosmite_Locaton_Pins", "Clouds", "Bird", "Nature_Background", "Forest_Sounds_wav", "Catalina", "Catalina_Location_Pins", "TypographyMaterial"]
+    reorder nameChildren = ["FlatTerrain", "DynamicTerrainMaterial", "GridMaterial", "Diorama_Base", "Yosemite", "Metallic_Gold_PU_Leather", "Yosmite_Locaton_Pins", "Clouds", "Birds", "RibbonBeach", "Nature_Background", "Forest_Sounds_wav", "Catalina", "Catalina_Location_Pins", "TypographyMaterial"]
     rel material:binding = None (
         bindMaterialAs = "weakerThanDescendants"
     )
@@ -277,70 +277,9 @@ def Xform "Root"
         }
     }
 
-    def Xform "Bird" (
+    def Xform "Nature_Background" (
         active = false
     )
-    {
-        float3 xformOp:translate = (0, 1.1678317, 0)
-        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-
-        def "Bird_With_Audio" (
-            active = true
-            references = @Bird_With_Audio.usda@
-        )
-        {
-            quatf xformOp:orient = (1, 0, 0, 0)
-            float3 xformOp:scale = (1, 1, 1)
-            float3 xformOp:translate = (0, 0, 0)
-            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-        }
-
-        def "Bird_With_Audio_1" (
-            active = true
-            references = @Bird_With_Audio.usda@
-        )
-        {
-            quatf xformOp:orient = (1, 0, 0, 0)
-            float3 xformOp:scale = (1, 1, 1)
-            float3 xformOp:translate = (-0.1, 0, -0.1)
-            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-        }
-
-        def "Bird_With_Audio_2" (
-            active = true
-            references = @Bird_With_Audio.usda@
-        )
-        {
-            quatf xformOp:orient = (1, 0, 0, 0)
-            float3 xformOp:scale = (1, 1, 1)
-            float3 xformOp:translate = (0.1, 0, -0.1)
-            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-        }
-
-        def "Bird_With_Audio_3" (
-            active = true
-            references = @Bird_With_Audio.usda@
-        )
-        {
-            quatf xformOp:orient = (1, 0, 0, 0)
-            float3 xformOp:scale = (1, 1, 1)
-            float3 xformOp:translate = (-0.2, 0, -0.2)
-            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-        }
-
-        def "Bird_With_Audio_4" (
-            active = true
-            references = @Bird_With_Audio.usda@
-        )
-        {
-            quatf xformOp:orient = (1, 0, 0, 0)
-            float3 xformOp:scale = (1, 1, 1)
-            float3 xformOp:translate = (0.2, 0, -0.2)
-            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-        }
-    }
-
-    def Xform "Nature_Background"
     {
         float3 xformOp:scale = (1, 1, 1)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
@@ -352,7 +291,9 @@ def Xform "Root"
         }
     }
 
-    def RealityKitAudioFile "Forest_Sounds_wav"
+    def RealityKitAudioFile "Forest_Sounds_wav" (
+        active = false
+    )
     {
         uniform asset file = @Forest_Sounds.wav@
     }
@@ -405,7 +346,9 @@ def Xform "Root"
         }
     }
 
-    def Material "TypographyMaterial"
+    def Material "TypographyMaterial" (
+        active = false
+    )
     {
         reorder nameChildren = ["PreviewSurface", "Lines", "SecondaryLines"]
         prepend token outputs:mtlx:surface.connect = </Root/TypographyMaterial/PreviewSurface.outputs:out>
@@ -505,7 +448,6 @@ def Xform "Root"
         }
 
         def "SecondaryLines" (
-            active = true
             instanceable = true
             references = </Root/TypographyMaterial/Lines>
         )
@@ -563,7 +505,7 @@ def Xform "Root"
 
     def Material "DynamicTerrainMaterial"
     {
-        float inputs:Constant = 0 (
+        float inputs:Constant = 1 (
             customData = {
                 dictionary realitykit = {
                     float2 positionInSubgraph = (-820.66797, 99.72656)
@@ -751,6 +693,83 @@ def Xform "Root"
             float2 ui:nodegraph:node:pos = (294.8047, -82.95703)
             float2 ui:nodegraph:node:size = (199, 199)
             int ui:nodegraph:node:stackingOrder = 329
+        }
+    }
+
+    def Xform "Birds" (
+        active = false
+    )
+    {
+        float3 xformOp:translate = (0, 1.1678317, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def "Bird_With_Audio" (
+            active = true
+            references = @Bird_With_Audio.usda@
+        )
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "Bird_With_Audio_1" (
+            active = true
+            references = @Bird_With_Audio.usda@
+        )
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (-0.1, 0, -0.1)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "Bird_With_Audio_2" (
+            active = true
+            references = @Bird_With_Audio.usda@
+        )
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0.1, 0, -0.1)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "Bird_With_Audio_3" (
+            active = true
+            references = @Bird_With_Audio.usda@
+        )
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (-0.2, 0, -0.2)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "Bird_With_Audio_4" (
+            active = true
+            references = @Bird_With_Audio.usda@
+        )
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0.2, 0, -0.2)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "RibbonBeach" (
+        active = true
+    )
+    {
+        float3 xformOp:translate = (0.46181187, 0.78806347, 0.19062859)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitCustomComponent "RealityKitContent_PointOfInterestComponent"
+        {
+            uniform token info:id = "RealityKitContent.PointOfInterestComponent"
+            token region = "catalina"
         }
     }
 }

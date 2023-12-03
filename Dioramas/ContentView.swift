@@ -10,23 +10,32 @@ import RealityKit
 import RealityKitContent
 
 struct ContentView: View {
-    @State private var showIt:Bool = false
+    var viewModel: ViewModel
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
     
     var body: some View {
+        @Bindable var viewModel = viewModel
+        
         VStack {
-            Toggle(isOn: $showIt){
+            Toggle(isOn: $viewModel.showImmersiveContent){
                 Text("Show It")
                     .font(.title)
             }
-            .onChange(of: showIt) {
+            .onChange(of: viewModel.showImmersiveContent) {
                 Task {
-                    if(showIt) {
+                    if(viewModel.showImmersiveContent) {
                         await openImmersiveSpace(id: "Immersive")
                     } else {
                         await dismissImmersiveSpace()
                     }
+                }
+            }
+            .onAppear{
+                Task {
+                    if(viewModel.showImmersiveContent) {
+                        await openImmersiveSpace(id: "Immersive")
+                    } 
                 }
             }
           
@@ -38,5 +47,5 @@ struct ContentView: View {
 }
 
 #Preview() {
-    ContentView().previewLayout(.sizeThatFits)
+    ContentView(viewModel: ViewModel()).previewLayout(.sizeThatFits)
 }

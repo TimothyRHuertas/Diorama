@@ -9,13 +9,15 @@ import SwiftUI
 
 @main
 struct DioramasApp: App {
+    @State private var viewModel = ViewModel()
+    
     var body: some SwiftUI.Scene {
         WindowGroup {
-            ContentView()
+            ContentView(viewModel: viewModel)
         }.windowStyle(.plain)
         
-        ImmersiveSpace(id: "Immersive") {
-            DioramaView()
+        ImmersiveSpace(id: viewModel.immersiveSpaceIdentifier) {
+            DioramaView(viewModel: viewModel)
         }
     }
 }
