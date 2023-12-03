@@ -12,7 +12,7 @@ struct DioramasApp: App {
     var body: some SwiftUI.Scene {
         WindowGroup {
             ContentView()
-        }.windowStyle(.volumetric)
+        }.windowStyle(.plain)
         
         ImmersiveSpace(id: "Immersive") {
             DioramaView()
