@@ -1,0 +1,757 @@
+#usda 1.0
+(
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    reorder nameChildren = ["FlatTerrain", "DynamicTerrainMaterial", "GridMaterial", "Diorama_Base", "Yosemite", "Metallic_Gold_PU_Leather", "Yosmite_Locaton_Pins", "Clouds", "Bird", "Nature_Background", "Forest_Sounds_wav", "Catalina", "Catalina_Location_Pins", "TypographyMaterial"]
+    rel material:binding = None (
+        bindMaterialAs = "weakerThanDescendants"
+    )
+    float3 xformOp:translate = (0, 0, 0)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+    def "GridMaterial" (
+        active = true
+        references = @Materials/GridMaterial.usda@
+    )
+    {
+        float3 xformOp:scale = (1, 1, 1)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "Diorama_Base" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+        references = @Diorama_Base.usdz@
+    )
+    {
+        rel material:binding = </Root/Metallic_Gold_PU_Leather> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "Looks"
+        {
+            over "DioramaBase_matSG"
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+            }
+        }
+    }
+
+    def "Yosemite" (
+        active = false
+        prepend apiSchemas = ["MaterialBindingAPI"]
+        references = @Yosemite.usdz@
+    )
+    {
+        rel material:binding = </Root/TypographyMaterial> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "Looks"
+        {
+            over "DioramaYosemite_matSG"
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+            }
+        }
+    }
+
+    def "Metallic_Gold_PU_Leather" (
+        active = true
+        references = @MetallicGoldPULeather.usdz@
+    )
+    {
+        color3f inputs:Basecolor_Tint (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-56.812614, 67.17455)
+                    float2 sizeInSubgraph = (161, 53)
+                    int stackingOrderInSubgraph = 2333
+                }
+            }
+        )
+        float2 inputs:UV_Scale (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-725.2588, 351.55255)
+                    float2 sizeInSubgraph = (139, 53)
+                    int stackingOrderInSubgraph = 2272
+                }
+            }
+        )
+        float2 ui:nodegraph:realitykit:subgraphOutputs:size = (182, 99)
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "Dot"
+        {
+            float2 ui:nodegraph:node:size = (44, 18)
+        }
+
+        over "multiply"
+        {
+            float2 ui:nodegraph:node:size = (61, 36)
+        }
+
+        over "add"
+        {
+            float2 ui:nodegraph:node:size = (63, 37)
+        }
+
+        over "PreviewSurface"
+        {
+            float2 ui:nodegraph:node:size = (149, 199)
+        }
+
+        over "Mix"
+        {
+            float2 ui:nodegraph:node:size = (109, 145)
+        }
+
+        over "Swizzle"
+        {
+            float2 ui:nodegraph:node:size = (133, 40)
+        }
+
+        over "Swizzle_1"
+        {
+            float2 ui:nodegraph:node:size = (145, 53)
+        }
+
+        over "Multiply_1"
+        {
+            float2 ui:nodegraph:node:size = (61, 36)
+        }
+
+        over "BaseColor"
+        {
+            float2 ui:nodegraph:node:size = (159, 235)
+        }
+
+        over "Roughness"
+        {
+            float2 ui:nodegraph:node:size = (159, 235)
+        }
+
+        over "Metallic"
+        {
+            float2 ui:nodegraph:node:size = (159, 235)
+        }
+
+        over "Normal"
+        {
+            float2 ui:nodegraph:node:size = (159, 235)
+        }
+    }
+
+    def Xform "Yosmite_Locaton_Pins" (
+        active = false
+    )
+    {
+        def "El_Capitan" (
+            active = true
+            references = @Location_Pin.usdz@
+        )
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.01, 0.01, 0.01)
+            float3 xformOp:translate = (0.30627465, 1.018473, -0.55592203)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "Cathedral_Rocks" (
+            active = true
+            references = @Location_Pin.usdz@
+        )
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.01, 0.01, 0.01)
+            float3 xformOp:translate = (-0.08617936, 1.0047889, 0.9514702)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            over "Materials"
+            {
+                over "phong3"
+                {
+                    token outputs:displacement.connect = </Root/Yosmite_Locaton_Pins/Cathedral_Rocks/Materials/phong3/phong3PreviewSurface.outputs:displacement>
+                    token outputs:surface.connect = </Root/Yosmite_Locaton_Pins/Cathedral_Rocks/Materials/phong3/phong3PreviewSurface.outputs:surface>
+                }
+
+                over "phong2"
+                {
+                    token outputs:displacement.connect = </Root/Yosmite_Locaton_Pins/Cathedral_Rocks/Materials/phong2/phong2PreviewSurface.outputs:displacement>
+                    token outputs:surface.connect = </Root/Yosmite_Locaton_Pins/Cathedral_Rocks/Materials/phong2/phong2PreviewSurface.outputs:surface>
+                }
+            }
+        }
+
+        def "Merced_River" (
+            active = true
+            references = @Location_Pin.usdz@
+        )
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.01, 0.01, 0.01)
+            float3 xformOp:translate = (-0.7143015, 0.6746867, 0.28996676)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            over "Materials"
+            {
+                over "phong3"
+                {
+                    token outputs:displacement.connect = </Root/Yosmite_Locaton_Pins/Merced_River/Materials/phong3/phong3PreviewSurface.outputs:displacement>
+                    token outputs:surface.connect = </Root/Yosmite_Locaton_Pins/Merced_River/Materials/phong3/phong3PreviewSurface.outputs:surface>
+                }
+
+                over "phong2"
+                {
+                    token outputs:displacement.connect = </Root/Yosmite_Locaton_Pins/Merced_River/Materials/phong2/phong2PreviewSurface.outputs:displacement>
+                    token outputs:surface.connect = </Root/Yosmite_Locaton_Pins/Merced_River/Materials/phong2/phong2PreviewSurface.outputs:surface>
+                }
+            }
+
+            over "pCylinder1"
+            {
+            }
+
+            over "pSphere1"
+            {
+            }
+
+            over "pCone1"
+            {
+            }
+        }
+    }
+
+    def Xform "Clouds" (
+        active = false
+    )
+    {
+        def "Cloud_A" (
+            active = true
+            references = @Cloud_A.usda@
+        )
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0.52011603, 0.91164577, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "Cloud_B" (
+            active = true
+            references = @Cloud_B.usda@
+        )
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (-0.5278723, 0.95925426, 0.97169477)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "Cloud_C" (
+            active = true
+            references = @Cloud_C.usda@
+        )
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (-0.71199, 0.84998846, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "Bird" (
+        active = false
+    )
+    {
+        float3 xformOp:translate = (0, 1.1678317, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def "Bird_With_Audio" (
+            active = true
+            references = @Bird_With_Audio.usda@
+        )
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "Bird_With_Audio_1" (
+            active = true
+            references = @Bird_With_Audio.usda@
+        )
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (-0.1, 0, -0.1)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "Bird_With_Audio_2" (
+            active = true
+            references = @Bird_With_Audio.usda@
+        )
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0.1, 0, -0.1)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "Bird_With_Audio_3" (
+            active = true
+            references = @Bird_With_Audio.usda@
+        )
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (-0.2, 0, -0.2)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "Bird_With_Audio_4" (
+            active = true
+            references = @Bird_With_Audio.usda@
+        )
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0.2, 0, -0.2)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "Nature_Background"
+    {
+        float3 xformOp:scale = (1, 1, 1)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitComponent "AmbientAudio"
+        {
+            float gain = -28.83634
+            uniform token info:id = "RealityKit.AmbientAudio"
+        }
+    }
+
+    def RealityKitAudioFile "Forest_Sounds_wav"
+    {
+        uniform asset file = @Forest_Sounds.wav@
+    }
+
+    def "Catalina" (
+        active = false
+        references = @Catalina.usdz@
+    )
+    {
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def Xform "Catalina_Location_Pins" (
+        active = false
+    )
+    {
+        def "Location_Pin" (
+            active = true
+            references = @Location_Pin.usdz@
+        )
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.01, 0.01, 0.01)
+            float3 xformOp:translate = (-0.43625933, 0.7965882, 0.059139848)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "Location_Pin_1" (
+            active = true
+            references = @Location_Pin.usdz@
+        )
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.01, 0.01, 0.01)
+            float3 xformOp:translate = (0, 0.8029956, -1.2779795)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "Location_Pin_2" (
+            active = true
+            references = @Location_Pin.usdz@
+        )
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.01, 0.01, 0.01)
+            float3 xformOp:translate = (0.45474967, 0.7978591, 0.33854693)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Material "TypographyMaterial"
+    {
+        reorder nameChildren = ["PreviewSurface", "Lines", "SecondaryLines"]
+        prepend token outputs:mtlx:surface.connect = </Root/TypographyMaterial/PreviewSurface.outputs:out>
+        token outputs:realitykit:vertex
+        float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (461.35938, 96.40625)
+        float2 ui:nodegraph:realitykit:subgraphOutputs:size = (182, 99)
+        int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 59
+
+        def Shader "PreviewSurface"
+        {
+            uniform token info:id = "ND_UsdPreviewSurface_surfaceshader"
+            color3f inputs:diffuseColor.connect = </Root/TypographyMaterial/Multiply.outputs:out>
+            float inputs:metallic
+            float inputs:opacity
+            float inputs:roughness
+            token outputs:out
+            float2 ui:nodegraph:node:pos = (235.85938, 96.40625)
+            float2 ui:nodegraph:node:size = (149, 199)
+            int ui:nodegraph:node:stackingOrder = 59
+        }
+
+        def NodeGraph "Lines"
+        {
+            color3f inputs:color = (0, 0, 0) (
+                customData = {
+                    dictionary realitykit = {
+                        float2 positionInSubgraph = (583.8867, -85.84375)
+                        float2 sizeInSubgraph = (133, 53)
+                        int stackingOrderInSubgraph = 109
+                    }
+                }
+            )
+            float inputs:spacing = 0.1 (
+                customData = {
+                    dictionary realitykit = {
+                        float2 positionInSubgraph = (299.95703, -66.92969)
+                        float2 sizeInSubgraph = (117, 53)
+                        int stackingOrderInSubgraph = 114
+                    }
+                }
+            )
+            prepend color3f outputs:Ifgreater_out.connect = </Root/TypographyMaterial/Lines/Ifgreater.outputs:out>
+            float2 ui:nodegraph:node:pos = (-245.1914, 20.179688)
+            float2 ui:nodegraph:node:size = (106, 127)
+            int ui:nodegraph:node:stackingOrder = 75
+            float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (751, 81.5)
+            float2 ui:nodegraph:realitykit:subgraphOutputs:size = (208, 81)
+
+            def Shader "Modulo"
+            {
+                uniform token info:id = "ND_modulo_float"
+                float inputs:in1.connect = </Root/TypographyMaterial/Lines/Separate3.outputs:outy>
+                float inputs:in2 = 0.1
+                float inputs:in2.connect = </Root/TypographyMaterial/Lines.inputs:spacing>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (402, 81.5)
+                float2 ui:nodegraph:node:size = (64, 39)
+                int ui:nodegraph:node:stackingOrder = 113
+            }
+
+            def Shader "Position"
+            {
+                uniform token info:id = "ND_position_vector3"
+                float3 outputs:out
+                float2 ui:nodegraph:node:pos = (66.5, 81.5)
+                float2 ui:nodegraph:node:size = (133, 40)
+                int ui:nodegraph:node:stackingOrder = 107
+            }
+
+            def Shader "Ifgreater"
+            {
+                uniform token info:id = "ND_ifgreater_color3"
+                color3f inputs:in1 = (1, 1, 1) (
+                    colorSpace = "srgb_texture"
+                )
+                color3f inputs:in2.connect = </Root/TypographyMaterial/Lines.inputs:color>
+                float inputs:value1.connect = </Root/TypographyMaterial/Lines/Modulo.outputs:out>
+                float inputs:value2 = 0.002
+                color3f outputs:out
+                float2 ui:nodegraph:node:pos = (548.5, 81.5)
+                float2 ui:nodegraph:node:size = (109, 163)
+                int ui:nodegraph:node:stackingOrder = 114
+                string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:out", "inputs:value1"]
+            }
+
+            def Shader "Separate3"
+            {
+                uniform token info:id = "ND_separate3_vector3"
+                float3 inputs:in.connect = </Root/TypographyMaterial/Lines/Position.outputs:out>
+                float outputs:outx
+                float outputs:outy
+                float outputs:outz
+                float2 ui:nodegraph:node:pos = (251.5, 81.5)
+                float2 ui:nodegraph:node:size = (117, 145)
+                int ui:nodegraph:node:stackingOrder = 107
+            }
+        }
+
+        def "SecondaryLines" (
+            active = true
+            instanceable = true
+            references = </Root/TypographyMaterial/Lines>
+        )
+        {
+            color3f inputs:color = (0.59581345, 0.59581345, 0.59581345) (
+                colorSpace = "lin_srgb"
+                customData = {
+                    dictionary realitykit = {
+                        float2 positionInSubgraph = (583.8867, -85.84375)
+                        float2 sizeInSubgraph = (133, 53)
+                        int stackingOrderInSubgraph = 109
+                    }
+                }
+            )
+            float inputs:spacing = 0.02 (
+                customData = {
+                    dictionary realitykit = {
+                        float2 positionInSubgraph = (299.95703, -66.92969)
+                        float2 sizeInSubgraph = (117, 53)
+                        int stackingOrderInSubgraph = 114
+                    }
+                }
+            )
+            float2 ui:nodegraph:node:pos = (-224.89844, 219.97656)
+            float2 ui:nodegraph:node:size = (151, 127)
+            int ui:nodegraph:node:stackingOrder = 68
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:Ifgreater_out"]
+            float2 ui:nodegraph:realitykit:subgraphOutputs:size = (176, 81)
+        }
+
+        def Shader "Multiply"
+        {
+            uniform token info:id = "ND_multiply_color3"
+            color3f inputs:in1.connect = </Root/TypographyMaterial/Lines.outputs:Ifgreater_out>
+            color3f inputs:in2.connect = </Root/TypographyMaterial/SecondaryLines.outputs:Ifgreater_out>
+            color3f outputs:out
+            float2 ui:nodegraph:node:pos = (-55.320312, 127.49219)
+            float2 ui:nodegraph:node:size = (61, 36)
+            int ui:nodegraph:node:stackingOrder = 74
+        }
+    }
+
+    def "FlatTerrain" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+        references = @FlatTerrain.usdz@
+    )
+    {
+        rel material:binding = </Root/DynamicTerrainMaterial> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        float3 xformOp:scale = (1, 1, 1)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def Material "DynamicTerrainMaterial"
+    {
+        float inputs:Constant = 0 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-820.66797, 99.72656)
+                    float2 sizeInSubgraph = (125, 53)
+                }
+            }
+        )
+        token outputs:mtlx:surface.connect = </Root/DynamicTerrainMaterial/MaterialPreviewSurface.outputs:out>
+        token outputs:realitykit:vertex.connect = </Root/DynamicTerrainMaterial/GeometryModifier.outputs:out>
+        float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (636.8086, 28.609375)
+        float2 ui:nodegraph:realitykit:subgraphOutputs:size = (182, 99)
+        int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 329
+
+        def Shader "GeometryModifier"
+        {
+            uniform token info:id = "ND_realitykit_geometrymodifier_vertexshader"
+            float3 inputs:bitangent
+            color4f inputs:color
+            float3 inputs:modelPositionOffset.connect = </Root/DynamicTerrainMaterial/Combine3.outputs:out>
+            float3 inputs:normal.connect = </Root/DynamicTerrainMaterial/Remap.outputs:out>
+            float2 inputs:uv0
+            float2 inputs:uv1
+            token outputs:out
+            float2 ui:nodegraph:node:pos = (290.3047, 206.8711)
+            float2 ui:nodegraph:node:size = (197, 325)
+            int ui:nodegraph:node:stackingOrder = 332
+        }
+
+        def Shader "Combine3"
+        {
+            uniform token info:id = "ND_combine3_vector3"
+            float inputs:in1
+            float inputs:in2.connect = </Root/DynamicTerrainMaterial/Mix_2.outputs:out>
+            float inputs:in3
+            float3 outputs:out
+            float2 ui:nodegraph:node:pos = (-34.101562, 427.73828)
+            float2 ui:nodegraph:node:size = (146, 54)
+            int ui:nodegraph:node:stackingOrder = 242
+        }
+
+        def Shader "Remap"
+        {
+            uniform token info:id = "ND_remap_vector3FA"
+            float3 inputs:in.connect = </Root/DynamicTerrainMaterial/Mix_1.outputs:out>
+            float inputs:inlow
+            float inputs:outhigh
+            float inputs:outlow = -1
+            float3 outputs:out
+            float2 ui:nodegraph:node:pos = (-22.152344, 178.82422)
+            float2 ui:nodegraph:node:size = (95, 181)
+            int ui:nodegraph:node:stackingOrder = 240
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:out"]
+        }
+
+        def Shader "YosmiteNormals"
+        {
+            uniform token info:id = "ND_image_vector3"
+            float3 inputs:default
+            asset inputs:file = @YosemiteData/DioramaYosemite_n.png@
+            string inputs:filtertype
+            float2 inputs:texcoord
+            string inputs:uaddressmode
+            string inputs:vaddressmode
+            float3 outputs:out
+            float2 ui:nodegraph:node:pos = (-534.27734, 131.8086)
+            float2 ui:nodegraph:node:size = (154, 199)
+            int ui:nodegraph:node:stackingOrder = 66
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:out"]
+        }
+
+        def Shader "YosmiteHeights"
+        {
+            uniform token info:id = "ND_image_float"
+            asset inputs:file = @YosemiteData/DioramaYosemite_refit_h.exr@
+            string inputs:filtertype
+            string inputs:vaddressmode
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-537.3633, 406.4336)
+            float2 ui:nodegraph:node:size = (150, 199)
+            int ui:nodegraph:node:stackingOrder = 76
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:file"]
+        }
+
+        def Shader "YosmiteColors"
+        {
+            uniform token info:id = "ND_image_color3"
+            asset inputs:file = @YosemiteData/DioramaYosemite_bc.png@
+            string inputs:filtertype
+            float2 inputs:texcoord
+            string inputs:uaddressmode
+            string inputs:vaddressmode
+            color3f outputs:out
+            float2 ui:nodegraph:node:pos = (-532.10156, -103.03516)
+            float2 ui:nodegraph:node:size = (149, 199)
+            int ui:nodegraph:node:stackingOrder = 49
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:file"]
+        }
+
+        def Shader "CatalinaColors"
+        {
+            uniform token info:id = "ND_image_color3"
+            asset inputs:file = @CatalinaData/DioramaCatalina_bc.png@
+            string inputs:filtertype
+            string inputs:uaddressmode
+            string inputs:vaddressmode
+            color3f outputs:out
+            float2 ui:nodegraph:node:pos = (-526.29694, -135.52951)
+            float2 ui:nodegraph:node:size = (149, 199)
+            int ui:nodegraph:node:stackingOrder = 57
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:file", "outputs:out"]
+        }
+
+        def Shader "CatilinaNormals"
+        {
+            uniform token info:id = "ND_image_vector3"
+            float3 inputs:default
+            asset inputs:file = @CatalinaData/DioramaCatalina_n.png@
+            string inputs:filtertype
+            float2 inputs:texcoord
+            string inputs:uaddressmode
+            string inputs:vaddressmode
+            float3 outputs:out
+            float2 ui:nodegraph:node:pos = (-511.66406, 108.19531)
+            float2 ui:nodegraph:node:size = (151, 199)
+            int ui:nodegraph:node:stackingOrder = 72
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:out"]
+        }
+
+        def Shader "CatilinaHeights"
+        {
+            uniform token info:id = "ND_image_float"
+            asset inputs:file = @CatalinaData/DioramaCatalina_refit_h.exr@
+            string inputs:filtertype
+            string inputs:vaddressmode
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-488.40234, 390.83984)
+            float2 ui:nodegraph:node:size = (149, 199)
+            int ui:nodegraph:node:stackingOrder = 82
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:file"]
+        }
+
+        def Shader "Mix"
+        {
+            uniform token info:id = "ND_mix_color3"
+            color3f inputs:bg.connect = </Root/DynamicTerrainMaterial/YosmiteColors.outputs:out>
+            color3f inputs:fg.connect = </Root/DynamicTerrainMaterial/CatalinaColors.outputs:out>
+            float inputs:mix.connect = </Root/DynamicTerrainMaterial.inputs:Constant>
+            color3f outputs:out
+            float2 ui:nodegraph:node:pos = (-265.52734, -167.69531)
+            float2 ui:nodegraph:node:size = (109, 145)
+            int ui:nodegraph:node:stackingOrder = 231
+        }
+
+        def Shader "Mix_1"
+        {
+            uniform token info:id = "ND_mix_vector3"
+            float3 inputs:bg.connect = </Root/DynamicTerrainMaterial/YosmiteNormals.outputs:out>
+            float3 inputs:fg.connect = </Root/DynamicTerrainMaterial/CatilinaNormals.outputs:out>
+            float inputs:mix.connect = </Root/DynamicTerrainMaterial.inputs:Constant>
+            float3 outputs:out
+            float2 ui:nodegraph:node:pos = (-260.92188, 102.07422)
+            float2 ui:nodegraph:node:size = (109, 145)
+            int ui:nodegraph:node:stackingOrder = 236
+        }
+
+        def Shader "Mix_2"
+        {
+            uniform token info:id = "ND_mix_float"
+            float inputs:bg.connect = </Root/DynamicTerrainMaterial/YosmiteHeights.outputs:out>
+            float inputs:fg.connect = </Root/DynamicTerrainMaterial/CatilinaHeights.outputs:out>
+            float inputs:mix.connect = </Root/DynamicTerrainMaterial.inputs:Constant>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-246.09375, 374.91544)
+            float2 ui:nodegraph:node:size = (109, 145)
+            int ui:nodegraph:node:stackingOrder = 238
+        }
+
+        def Shader "MaterialPreviewSurface"
+        {
+            uniform token info:id = "ND_UsdPreviewSurface_surfaceshader"
+            color3f inputs:diffuseColor.connect = </Root/DynamicTerrainMaterial/Mix.outputs:out>
+            float inputs:metallic
+            float inputs:roughness
+            token outputs:out
+            float2 ui:nodegraph:node:pos = (294.8047, -82.95703)
+            float2 ui:nodegraph:node:size = (199, 199)
+            int ui:nodegraph:node:stackingOrder = 329
+        }
+    }
+}
+
