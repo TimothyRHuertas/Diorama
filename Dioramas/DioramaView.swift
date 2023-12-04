@@ -12,9 +12,12 @@ import RealityKitContent
 struct DioramaView: View {
     var viewModel:ViewModel
     var body: some View {
+        @Bindable var viewModel = viewModel
+        
         RealityView { content in
             do {
                 let entity = try await Entity(named: "DioramaAssembled", in: realityKitContentBundle)
+                viewModel.rootEntity = entity
                 content.add(entity)
                 entity.position = SIMD3<Float>(0, 0, -5)
 

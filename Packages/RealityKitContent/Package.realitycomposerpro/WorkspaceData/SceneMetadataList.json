@@ -29,6 +29,25 @@
       {
         "isExpanded" : true,
         "isLocked" : false
+      },
+      [
+        "05F98B3B-084C-476D-B87A-CC5C330CF409",
+        "Root",
+        "FlatTerrain"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "05F98B3B-084C-476D-B87A-CC5C330CF409",
+        "Root",
+        "FlatTerrain",
+        "Looks"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
       }
     ]
   },
@@ -36,7 +55,28 @@
     "objectMetadataList" : [
       [
         "52DEAFFF-BF3D-465B-B79E-AAFF6724EABE",
+        "Root",
+        "SpatialAudio"
+      ],
+      {
+        "isExpanded" : false,
+        "isLocked" : false,
+        "selectedAudioFilePrim" : {
+          "string" : "\/Root\/Bird_Calls"
+        }
+      },
+      [
+        "52DEAFFF-BF3D-465B-B79E-AAFF6724EABE",
         "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "52DEAFFF-BF3D-465B-B79E-AAFF6724EABE",
+        "Root",
+        "Bird_Calls"
       ],
       {
         "isExpanded" : true,
@@ -60,27 +100,6 @@
       {
         "isExpanded" : true,
         "isLocked" : false
-      },
-      [
-        "52DEAFFF-BF3D-465B-B79E-AAFF6724EABE",
-        "Root",
-        "Bird_Calls"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "52DEAFFF-BF3D-465B-B79E-AAFF6724EABE",
-        "Root",
-        "SpatialAudio"
-      ],
-      {
-        "isExpanded" : false,
-        "isLocked" : false,
-        "selectedAudioFilePrim" : {
-          "string" : "\/Root\/Bird_Calls"
-        }
       }
     ]
   },
@@ -98,6 +117,87 @@
   },
   "90C576A0-F90A-43B8-9998-14918A66F863" : {
     "objectMetadataList" : [
+      [
+        "90C576A0-F90A-43B8-9998-14918A66F863",
+        "Root",
+        "DynamicTerrainMaterial"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "90C576A0-F90A-43B8-9998-14918A66F863",
+        "Root",
+        "TypographyMaterial",
+        "Lines"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "90C576A0-F90A-43B8-9998-14918A66F863",
+        "Root",
+        "Nature_Background"
+      ],
+      {
+        "isExpanded" : false,
+        "isLocked" : false,
+        "selectedAudioFilePrim" : {
+          "string" : "\/Root\/Forest_Sounds_wav"
+        }
+      },
+      [
+        "90C576A0-F90A-43B8-9998-14918A66F863",
+        "Root",
+        "Bird",
+        "Bird_With_Audio",
+        "SpatialAudio"
+      ],
+      {
+        "isExpanded" : false,
+        "isLocked" : false,
+        "selectedAudioFilePrim" : {
+          "string" : "\/Root\/Bird\/Bird_With_Audio\/Bird_Calls"
+        }
+      },
+      [
+        "90C576A0-F90A-43B8-9998-14918A66F863",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "90C576A0-F90A-43B8-9998-14918A66F863",
+        "Root",
+        "Bird",
+        "Bird_With_Audio_2",
+        "SpatialAudio"
+      ],
+      {
+        "isExpanded" : false,
+        "isLocked" : false,
+        "selectedAudioFilePrim" : {
+          "string" : "\/Root\/Bird\/Bird_With_Audio_2\/Bird_Calls"
+        }
+      },
+      [
+        "90C576A0-F90A-43B8-9998-14918A66F863",
+        "Root",
+        "Bird",
+        "Bird_With_Audio_3",
+        "SpatialAudio"
+      ],
+      {
+        "isExpanded" : false,
+        "isLocked" : false,
+        "selectedAudioFilePrim" : {
+          "string" : "\/Root\/Bird\/Bird_With_Audio_3\/Bird_Calls"
+        }
+      },
       [
         "90C576A0-F90A-43B8-9998-14918A66F863",
         "Root",
@@ -124,15 +224,6 @@
       [
         "90C576A0-F90A-43B8-9998-14918A66F863",
         "Root",
-        "DynamicTerrainMaterial"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "90C576A0-F90A-43B8-9998-14918A66F863",
-        "Root",
         "Bird",
         "Bird_With_Audio_1",
         "SpatialAudio"
@@ -142,78 +233,6 @@
         "isLocked" : false,
         "selectedAudioFilePrim" : {
           "string" : "\/Root\/Bird\/Bird_With_Audio_1\/Bird_Calls"
-        }
-      },
-      [
-        "90C576A0-F90A-43B8-9998-14918A66F863",
-        "Root"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "90C576A0-F90A-43B8-9998-14918A66F863",
-        "Root",
-        "Bird",
-        "Bird_With_Audio",
-        "SpatialAudio"
-      ],
-      {
-        "isExpanded" : false,
-        "isLocked" : false,
-        "selectedAudioFilePrim" : {
-          "string" : "\/Root\/Bird\/Bird_With_Audio\/Bird_Calls"
-        }
-      },
-      [
-        "90C576A0-F90A-43B8-9998-14918A66F863",
-        "Root",
-        "Bird",
-        "Bird_With_Audio_2",
-        "SpatialAudio"
-      ],
-      {
-        "isExpanded" : false,
-        "isLocked" : false,
-        "selectedAudioFilePrim" : {
-          "string" : "\/Root\/Bird\/Bird_With_Audio_2\/Bird_Calls"
-        }
-      },
-      [
-        "90C576A0-F90A-43B8-9998-14918A66F863",
-        "Root",
-        "TypographyMaterial",
-        "Lines"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "90C576A0-F90A-43B8-9998-14918A66F863",
-        "Root",
-        "Bird",
-        "Bird_With_Audio_3",
-        "SpatialAudio"
-      ],
-      {
-        "isExpanded" : false,
-        "isLocked" : false,
-        "selectedAudioFilePrim" : {
-          "string" : "\/Root\/Bird\/Bird_With_Audio_3\/Bird_Calls"
-        }
-      },
-      [
-        "90C576A0-F90A-43B8-9998-14918A66F863",
-        "Root",
-        "Nature_Background"
-      ],
-      {
-        "isExpanded" : false,
-        "isLocked" : false,
-        "selectedAudioFilePrim" : {
-          "string" : "\/Root\/Forest_Sounds_wav"
         }
       }
     ]

@@ -38,11 +38,21 @@ struct ContentView: View {
                     } 
                 }
             }
-          
-                
+            
+            Slider(value: $viewModel.sliderValue, in:(0.0)...(1.0)) 
+                .onChange(of: viewModel.sliderValue) {
+                    update()
+                }
         }
+        .frame(width: 500)
+        .padding(30)
+        .glassBackgroundEffect()
         
        
+    }
+    
+    private func update() {
+        viewModel.updateTerrainMaterial()
     }
 }
 
