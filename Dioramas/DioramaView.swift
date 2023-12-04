@@ -19,7 +19,8 @@ struct DioramaView: View {
                 let entity = try await Entity(named: "DioramaAssembled", in: realityKitContentBundle)
                 viewModel.rootEntity = entity
                 content.add(entity)
-                entity.position = SIMD3<Float>(0, 0, -5)
+                viewModel.updateScale()
+                entity.position = SIMD3<Float>(0, 0, -3)
 
             } catch {
                 

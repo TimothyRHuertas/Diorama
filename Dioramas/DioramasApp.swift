@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct DioramasApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @State private var viewModel = ViewModel()
     
     var body: some SwiftUI.Scene {
@@ -19,5 +20,11 @@ struct DioramasApp: App {
         ImmersiveSpace(id: viewModel.immersiveSpaceIdentifier) {
             DioramaView(viewModel: viewModel)
         }
+    }
+}
+
+class AppDelegate: NSObject, UIApplicationDelegate {
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: UIApplication) -> Bool {
+        return true
     }
 }

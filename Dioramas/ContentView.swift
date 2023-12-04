@@ -26,6 +26,7 @@ struct ContentView: View {
                 Task {
                     if(viewModel.showImmersiveContent) {
                         await openImmersiveSpace(id: "Immersive")
+                        update()
                     } else {
                         await dismissImmersiveSpace()
                     }
@@ -43,6 +44,8 @@ struct ContentView: View {
                 .onChange(of: viewModel.sliderValue) {
                     update()
                 }
+            
+              
         }
         .frame(width: 500)
         .padding(30)
